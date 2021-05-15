@@ -17,6 +17,11 @@
 		AB5A9403264AD84700A5BA41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5A9401264AD84700A5BA41 /* LaunchScreen.storyboard */; };
 		AB5A940E264AD84700A5BA41 /* Photos500pxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5A940D264AD84700A5BA41 /* Photos500pxTests.swift */; };
 		AB5A9419264AD84700A5BA41 /* Photos500pxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5A9418264AD84700A5BA41 /* Photos500pxUITests.swift */; };
+		AB775CE1264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CDF264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift */; };
+		AB775CE2264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */; };
+		AB775CE8264FE6D100DF4BB3 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */; };
+		AB775CF0264FE8C600DF4BB3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CEF264FE8C600DF4BB3 /* AppColor.swift */; };
+		AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,11 @@
 		AB5A9414264AD84700A5BA41 /* Photos500pxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Photos500pxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB5A9418264AD84700A5BA41 /* Photos500pxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos500pxUITests.swift; sourceTree = "<group>"; };
 		AB5A941A264AD84700A5BA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB775CDF264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPostTableViewCell.swift; sourceTree = "<group>"; };
+		AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosPostTableViewCell.xib; sourceTree = "<group>"; };
+		AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		AB775CEF264FE8C600DF4BB3 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
 		D1F313DCDC908A17A89DAD63 /* Pods-Photos500px-Photos500pxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos500px-Photos500pxUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos500px-Photos500pxUITests/Pods-Photos500px-Photos500pxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,11 +134,17 @@
 		AB5A93F5264AD84600A5BA41 /* Photos500px */ = {
 			isa = PBXGroup;
 			children = (
+				AB775CFA264FE9BB00DF4BB3 /* Extension */,
+				AB775CE6264FE6BF00DF4BB3 /* Config */,
+				AB775CF4264FE95A00DF4BB3 /* Util */,
+				AB775CDC264FDF4D00DF4BB3 /* Model */,
+				AB775CDB264FDF4300DF4BB3 /* Service */,
+				AB775CDD264FDF5500DF4BB3 /* ViewModel */,
+				AB775CDA264FDF3C00DF4BB3 /* ViewController */,
+				AB775CD9264FDF2500DF4BB3 /* View */,
 				AB5A93F6264AD84600A5BA41 /* AppDelegate.swift */,
 				AB5A93FA264AD84600A5BA41 /* ViewController.swift */,
-				AB5A93FC264AD84600A5BA41 /* Main.storyboard */,
 				AB5A93FF264AD84700A5BA41 /* Assets.xcassets */,
-				AB5A9401264AD84700A5BA41 /* LaunchScreen.storyboard */,
 				AB5A9404264AD84700A5BA41 /* Info.plist */,
 			);
 			path = Photos500px;
@@ -150,6 +166,77 @@
 				AB5A941A264AD84700A5BA41 /* Info.plist */,
 			);
 			path = Photos500pxUITests;
+			sourceTree = "<group>";
+		};
+		AB775CD9264FDF2500DF4BB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB775CDE264FDF7F00DF4BB3 /* cell */,
+				AB5A93FC264AD84600A5BA41 /* Main.storyboard */,
+				AB5A9401264AD84700A5BA41 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB775CDA264FDF3C00DF4BB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		AB775CDB264FDF4300DF4BB3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		AB775CDC264FDF4D00DF4BB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AB775CDD264FDF5500DF4BB3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AB775CDE264FDF7F00DF4BB3 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				AB775CDF264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift */,
+				AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		AB775CE6264FE6BF00DF4BB3 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */,
+				AB775CEF264FE8C600DF4BB3 /* AppColor.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		AB775CF4264FE95A00DF4BB3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		AB775CFA264FE9BB00DF4BB3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D87F0C5E1A4D5DBF99B32340 /* Pods */ = {
@@ -275,6 +362,7 @@
 			files = (
 				AB5A9403264AD84700A5BA41 /* LaunchScreen.storyboard in Resources */,
 				AB5A9400264AD84700A5BA41 /* Assets.xcassets in Resources */,
+				AB775CE2264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib in Resources */,
 				AB5A93FE264AD84600A5BA41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +492,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB5A93FB264AD84600A5BA41 /* ViewController.swift in Sources */,
+				AB775CF0264FE8C600DF4BB3 /* AppColor.swift in Sources */,
+				AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */,
 				AB5A93F7264AD84600A5BA41 /* AppDelegate.swift in Sources */,
+				AB775CE1264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift in Sources */,
+				AB775CE8264FE6D100DF4BB3 /* APIConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
