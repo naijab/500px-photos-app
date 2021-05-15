@@ -56,7 +56,7 @@ extension KFImage {
         _ resource: Resource?, isLoaded: Binding<Bool> = .constant(false)
     ) -> KFImage
     {
-        source(resource?.convertToSource(), isLoaded: isLoaded)
+        .source(resource?.convertToSource(), isLoaded: isLoaded)
     }
 
     /// Creates a `KFImage` for a given `URL`.
@@ -72,7 +72,7 @@ extension KFImage {
         _ url: URL?, cacheKey: String? = nil, isLoaded: Binding<Bool> = .constant(false)
     ) -> KFImage
     {
-        source(url?.convertToSource(overrideCacheKey: cacheKey), isLoaded: isLoaded)
+        source(url?.convertToSource(), isLoaded: isLoaded)
     }
 
     /// Creates a `KFImage` for a given `ImageDataProvider`.
@@ -83,10 +83,10 @@ extension KFImage {
     ///               wrapped value from outside.
     /// - Returns: A `KFImage` for future configuration or embedding to a `SwiftUI.View`.
     public static func dataProvider(
-        _ provider: ImageDataProvider?, isLoaded: Binding<Bool> = .constant(false)
+        _ provider: ImageDataProvider, isLoaded: Binding<Bool> = .constant(false)
     ) -> KFImage
     {
-        source(provider?.convertToSource(), isLoaded: isLoaded)
+        source(.provider(provider), isLoaded: isLoaded)
     }
 
     /// Creates a builder for some given raw data and a cache key.
@@ -98,14 +98,10 @@ extension KFImage {
     ///               wrapped value from outside.
     /// - Returns: A `KFImage` for future configuration or embedding to a `SwiftUI.View`.
     public static func data(
-        _ data: Data?, cacheKey: String, isLoaded: Binding<Bool> = .constant(false)
+        _ data: Data, cacheKey: String, isLoaded: Binding<Bool> = .constant(false)
     ) -> KFImage
     {
-        if let data = data {
-            return dataProvider(RawImageDataProvider(data: data, cacheKey: cacheKey), isLoaded: isLoaded)
-        } else {
-            return dataProvider(nil, isLoaded: isLoaded)
-        }
+        source(.provider(RawImageDataProvider(data: data, cacheKey: cacheKey)), isLoaded: isLoaded)
     }
 }
 
@@ -117,7 +113,7 @@ extension KFImage {
     public func placeholder<Content: View>(@ViewBuilder _ content: () -> Content) -> KFImage {
         let v = content()
         var result = self
-        result.context.placeholder = AnyView(v)
+        result.placeholder = AnyView(v)
         return result
     }
 
@@ -126,21 +122,8 @@ extension KFImage {
     /// - Returns: A `KFImage` view that cancels downloading task when disappears.
     public func cancelOnDisappear(_ flag: Bool) -> KFImage {
         var result = self
-        result.context.cancelOnDisappear = flag
+        result.cancelOnDisappear = flag
         return result
-    }
-
-    /// Sets a fade transition for the image task.
-    /// - Parameter duration: The duration of the fade transition.
-    /// - Returns: A `KFImage` with changes applied.
-    ///
-    /// Kingfisher will use the fade transition to animate the image in if it is downloaded from web.
-    /// The transition will not happen when the
-    /// image is retrieved from either memory or disk cache by default. If you need to do the transition even when
-    /// the image being retrieved from cache, also call `forceRefresh()` on the returned `KFImage`.
-    public func fade(duration: TimeInterval) -> KFImage {
-        context.binder.options.transition = .fade(duration)
-        return self
     }
 }
 #endif

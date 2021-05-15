@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (5.4.3)
-  - Kingfisher (6.2.1)
-  - ObjectMapper (3.5.3)
+  - Kingfisher (6.0.0)
+  - ObjectMapper (4.2.0)
   - RxAlamofire (6.1.0):
     - RxAlamofire/Core (= 6.1.0)
   - RxAlamofire/Core (6.1.0):
@@ -16,8 +16,8 @@ PODS:
   - SkeletonView (1.15.0)
 
 DEPENDENCIES:
-  - Kingfisher (~> 6.0)
-  - ObjectMapper (~> 3.5)
+  - Kingfisher (= 6.0)
+  - ObjectMapper (= 4.2)
   - RxAlamofire (= 6.1)
   - RxCocoa (= 6.2.0)
   - RxSwift (= 6.2.0)
@@ -36,14 +36,14 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
-  ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  Kingfisher: 13f6e68c928eb50439b5cb2ea75d6035018438ea
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   RxAlamofire: 27d77b94881fb308b679b70d0799f74c649df1e3
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SkeletonView: cac18a3ac4f893b09d99e65072d806ef08377aae
 
-PODFILE CHECKSUM: 959f5d047db1872b9dd3b637315b872408e9c1f1
+PODFILE CHECKSUM: 49479117a672fd756ed468c451c3ae76dddab200
 
 COCOAPODS: 1.10.1

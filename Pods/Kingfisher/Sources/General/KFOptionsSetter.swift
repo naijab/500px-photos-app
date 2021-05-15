@@ -45,15 +45,15 @@ extension KF.Builder: KFOptionSetter {
 @available(iOS 13.0, OSX 10.15, tvOS 13.0, watchOS 6.0, *)
 extension KFImage: KFOptionSetter {
     public var options: KingfisherParsedOptionsInfo {
-        get { context.binder.options }
-        nonmutating set { context.binder.options = newValue }
+        get { binder.options }
+        nonmutating set { binder.options = newValue }
     }
 
-    public var onFailureDelegate: Delegate<KingfisherError, Void> { context.binder.onFailureDelegate }
-    public var onSuccessDelegate: Delegate<RetrieveImageResult, Void> { context.binder.onSuccessDelegate }
-    public var onProgressDelegate: Delegate<(Int64, Int64), Void> { context.binder.onProgressDelegate }
+    public var onFailureDelegate: Delegate<KingfisherError, Void> { binder.onFailureDelegate }
+    public var onSuccessDelegate: Delegate<RetrieveImageResult, Void> { binder.onSuccessDelegate }
+    public var onProgressDelegate: Delegate<(Int64, Int64), Void> { binder.onProgressDelegate }
 
-    public var delegateObserver: AnyObject { context.binder }
+    public var delegateObserver: AnyObject { binder }
 }
 #endif
 
@@ -217,8 +217,8 @@ extension KFOptionSetter {
     /// - Returns: A `Self` value with changes applied.
     ///
     /// - Note:
-    /// This option does not affect the callbacks for UI related extension methods or `KFImage` result handlers.
-    /// You will always get the callbacks called from main queue.
+    /// This option does not affect the callbacks for UI related extension methods. You will always get the
+    /// callbacks called from main queue.
     public func callbackQueue(_ queue: CallbackQueue) -> Self {
         options.callbackQueue = queue
         return self
@@ -339,15 +339,6 @@ extension KFOptionSetter {
         options.lowDataModeSource = source
         return self
     }
-
-    /// Sets whether the image setting for an image view should happen with transition even when retrieved from cache.
-    /// - Parameter enabled: Enable the force transition or not.
-    /// - Returns: A `KF.Builder` with changes applied.
-    public func forceTransition(_ enabled: Bool = true) -> Self {
-        options.forceTransition = enabled
-        return self
-    }
-
 }
 
 // MARK: - Request Modifier

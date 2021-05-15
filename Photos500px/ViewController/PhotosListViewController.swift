@@ -1,8 +1,11 @@
 import UIKit
+import RxSwift
 
 final class PhotosListViewController: UIViewController {
 
     @IBOutlet private weak var photosListTableView: UITableView!
+
+    private let disposeBag = DisposeBag()
 
     var viewModel: PhotosListViewModel!
 
@@ -10,6 +13,9 @@ final class PhotosListViewController: UIViewController {
         super.viewDidLoad()
         self.viewModel = PhotosListViewModel()
         setupPhotosListTableView()
+        setupBinding()
+
+        viewModel.fetch()
     }
 
     private func setupPhotosListTableView() {
@@ -29,6 +35,30 @@ final class PhotosListViewController: UIViewController {
             self, action: #selector(didPullRefresh),
             for: .valueChanged
         )
+    }
+
+    private var isLoading: Bool = false
+    private var hasNextPage: Bool = false
+    private var photos: [PhotosEntity]? = []
+
+    private func setupBinding() {
+        viewModel.isLoading.subscribe {
+            self.isLoading = $0
+        }.disposed(by: disposeBag)
+
+        viewModel.hasNextPage.subscribe {
+            self.isLoading = $0
+        }.disposed(by: disposeBag)
+
+        viewModel.photos.subscribe {
+            if let element = $0.element {
+
+                self.photos = element
+
+                print("self.photos - \(self.photos)")
+            }
+            self.photosListTableView.reloadData()
+        }.disposed(by: disposeBag)
     }
 
 }
@@ -54,27 +84,29 @@ extension PhotosListViewController: UITableViewDelegate {
 extension PhotosListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.state.photos.count
+        return self.photos?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let row = indexPath.row
-
 
         let cell = tableView.dequeueReusableCell(
             withIdentifier: PhotosPostTableViewCell.identifier,
             for: indexPath
         ) as! PhotosPostTableViewCell
 
-        cell.bindData(
-            with: PhotosPostTableViewCellData(
-                title: "Lorem ipsum dolor sit amet, consectetur",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                photos: "https://picsum.photos/200/300",
-                voteCount: 1234
+        if let photos = self.photos, !photos.isEmpty {
+            let item = photos[row]
+
+            cell.bindData(
+                with: PhotosPostTableViewCellData(
+                    title: item.name ?? "",
+                    description: item.description ?? "",
+                    photos: item.imageUrl?.first ?? "",
+                    voteCount: item.positiveVotesCount ?? 0
+                )
             )
-        )
+        }
 
         // FIX: Ads will show every 5th item between photos post
         print("Row Mod: \(row) ==> \(row % 4)")
@@ -97,10 +129,7 @@ extension PhotosListViewController: UITableViewDataSource {
 extension PhotosListViewController {
 
     @objc private func didPullRefresh() {
-        print("Pull refesh !")
-
-        // TODO: Handle call fetch and reload table
-
+        viewModel.fetch()
         DispatchQueue.main.async {
             self.photosListTableView.refreshControl?.endRefreshing()
         }

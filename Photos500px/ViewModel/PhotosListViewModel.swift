@@ -1,39 +1,34 @@
 import Foundation
-
-struct PhotosListViewModelState {
-    var isLoading = false
-    var hasNextPage = false
-    var photos: [String] = []
-}
+import RxSwift
 
 final class PhotosListViewModel {
-    var state: PhotosListViewModelState
-    let limit = 20
+    private let disposeBag = DisposeBag()
 
-    init () {
-        state = PhotosListViewModelState()
+    var isLoading = PublishSubject<Bool>()
+    var hasNextPage = PublishSubject<Bool>()
+    var photos = PublishSubject<[PhotosEntity]?>()
 
-        state.photos = [
-            "lorem 1",
-            "lorem 2",
-            "lorem 3",
-            "lorem 4",
-            "lorem 5",
-            "lorem 6",
-            "lorem 7",
-            "lorem 8",
-            "lorem 9",
-            "lorem 10",
-            "lorem 11",
-            "lorem 12",
-            "lorem 13",
-            "lorem 14",
-            "lorem 15",
-            "lorem 16",
-            "lorem 17",
-            "lorem 18",
-            "lorem 19",
-            "lorem 20",
-        ]
+    private let limit = 20
+
+    init() {
+        isLoading.onNext(false)
+        hasNextPage.onNext(false)
+        photos.onNext([])
+    }
+
+    func fetch() {
+        self.isLoading.onNext(true)
+
+        PhotosAPIService.shared.getPhotos()
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self] photosData in
+                guard let self = self else { return }
+
+                if let element = photosData.element {
+                    self.photos.onNext(element)
+                }
+
+                self.isLoading.onNext(false)
+            }.disposed(by: disposeBag)
     }
 }

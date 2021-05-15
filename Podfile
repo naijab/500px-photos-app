@@ -6,8 +6,8 @@ target 'Photos500px' do
   use_frameworks!
 
   # Pods for Photos500px
-  pod 'Kingfisher', '~> 6.0'
-  pod 'ObjectMapper', '~> 3.5'
+  pod 'Kingfisher', '6.0'
+  pod 'ObjectMapper', '4.2'
   pod 'SkeletonView', '1.15.0'
   pod 'RxAlamofire', '6.1'
   pod 'RxSwift', '6.2.0'
