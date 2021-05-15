@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Photos500px
-//
-//  Created by Nattapon Pondongnok on 11/5/2564 BE.
-//
-
 import UIKit
 
 @UIApplicationMain
