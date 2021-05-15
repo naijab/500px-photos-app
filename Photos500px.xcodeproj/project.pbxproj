@@ -23,6 +23,7 @@
 		AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */; };
 		AB775D0B264FFB2700DF4BB3 /* AdsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D09264FFB2700DF4BB3 /* AdsTableViewCell.swift */; };
 		AB775D0C264FFB2700DF4BB3 /* AdsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB775D0A264FFB2700DF4BB3 /* AdsTableViewCell.xib */; };
+		AB775D112650048B00DF4BB3 /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D102650048B00DF4BB3 /* PhotosListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
 		AB775D09264FFB2700DF4BB3 /* AdsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableViewCell.swift; sourceTree = "<group>"; };
 		AB775D0A264FFB2700DF4BB3 /* AdsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdsTableViewCell.xib; sourceTree = "<group>"; };
+		AB775D102650048B00DF4BB3 /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
 		D1F313DCDC908A17A89DAD63 /* Pods-Photos500px-Photos500pxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos500px-Photos500pxUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos500px-Photos500pxUITests/Pods-Photos500px-Photos500pxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 		AB775CDD264FDF5500DF4BB3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AB775D102650048B00DF4BB3 /* PhotosListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				AB5A93F7264AD84600A5BA41 /* AppDelegate.swift in Sources */,
 				AB775CE1264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift in Sources */,
 				AB775D0B264FFB2700DF4BB3 /* AdsTableViewCell.swift in Sources */,
+				AB775D112650048B00DF4BB3 /* PhotosListViewModel.swift in Sources */,
 				AB775CE8264FE6D100DF4BB3 /* APIConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

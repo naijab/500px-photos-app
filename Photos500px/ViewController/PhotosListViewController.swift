@@ -20,11 +20,27 @@ final class PhotosListViewController: UIViewController {
         )
         photosListTableView.delegate = self
         photosListTableView.dataSource = self
+
+        photosListTableView.refreshControl = UIRefreshControl()
+        photosListTableView.refreshControl?.addTarget(
+            self, action: #selector(didPullRefresh),
+            for: .valueChanged
+        )
     }
 
 }
 
 extension PhotosListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+
+        // TODO: Implement load more
+        //  if row == viewModel.photosList.count - 1,
+        //     viewModel.hasNextPage {
+        //     print("Load more !!")
+        //  }
+    }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
@@ -43,7 +59,10 @@ extension PhotosListViewController: UITableViewDataSource {
         let row = indexPath.row
 
         // FIX: Ads will show every 5th item between photos post
-        if row != 0, row % 5 == 0 {
+        print("Row Mod: \(row) ==> \(row % 4)")
+
+        if row != 0, row % 4 == 0 {
+
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: AdsTableViewCell.identifier,
                 for: indexPath
@@ -68,6 +87,20 @@ extension PhotosListViewController: UITableViewDataSource {
             return cell
         }
 
+    }
+
+}
+
+extension PhotosListViewController {
+
+    @objc private func didPullRefresh() {
+        print("Pull refesh !")
+
+        // TODO: Handle call fetch and reload table
+
+        DispatchQueue.main.async {
+            self.photosListTableView.refreshControl?.endRefreshing()
+        }
     }
 
 }
