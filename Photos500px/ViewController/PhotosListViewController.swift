@@ -46,19 +46,37 @@ final class PhotosListViewController: UIViewController {
             self.isLoading = $0
         }.disposed(by: disposeBag)
 
+        viewModel.isLoadMoreCompleted.subscribe {
+            if let isLoadMoreCompleted = $0.element {
+                self.photosListTableView.tableFooterView?.isHidden = isLoadMoreCompleted
+            }
+        }.disposed(by: disposeBag)
+
         viewModel.hasNextPage.subscribe {
             self.hasNextPage = $0
         }.disposed(by: disposeBag)
 
         viewModel.photos.subscribe {
-            if let element = $0.element {
-                self.photos = element
+            if let photos = $0.element {
+                self.photos = photos
 
                 DispatchQueue.main.async {
                     self.photosListTableView.reloadData()
                 }
             }
         }.disposed(by: disposeBag)
+    }
+
+    private var spinner: UIActivityIndicatorView {
+        let spinner = UIActivityIndicatorView(style: .gray)
+        spinner.startAnimating()
+        spinner.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: view.bounds.width,
+            height: 100
+        )
+        return spinner
     }
 
 }
@@ -71,6 +89,10 @@ extension PhotosListViewController: UITableViewDelegate {
         if let photos = self.photos,
            photos.count - 1 == row,
            self.hasNextPage {
+
+            self.photosListTableView.tableFooterView = spinner
+            self.photosListTableView.tableFooterView?.isHidden = false
+
             self.viewModel.loadMore()
         }
     }

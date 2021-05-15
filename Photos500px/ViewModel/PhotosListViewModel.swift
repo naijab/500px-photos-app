@@ -4,6 +4,7 @@ import RxSwift
 final class PhotosListViewModel {
     private let disposeBag = DisposeBag()
 
+    var isLoadMoreCompleted = PublishSubject<Bool>()
     var isLoading = PublishSubject<Bool>()
     var hasNextPage = PublishSubject<Bool>()
     var photos = PublishSubject<[PhotosEntity]?>()
@@ -13,6 +14,7 @@ final class PhotosListViewModel {
 
     init() {
         isLoading.onNext(false)
+        isLoadMoreCompleted.onNext(true)
         hasNextPage.onNext(false)
         photos.onNext([])
     }
@@ -38,7 +40,10 @@ final class PhotosListViewModel {
 
     func loadMore() {
         self.isLoading.onNext(true)
+        self.isLoadMoreCompleted.onNext(false)
         self.currentPage += 1
+
+        print("Load more on : \( self.currentPage)")
 
         PhotosAPIService.shared.getPhotos(page: currentPage)
             .observe(on: MainScheduler.instance)
@@ -52,6 +57,7 @@ final class PhotosListViewModel {
                     newPhotos.append(contentsOf: element?.photos ?? [])
 
                     self.photos.onNext(newPhotos)
+                    self.isLoadMoreCompleted.onNext(true)
                 }
 
                 self.isLoading.onNext(false)

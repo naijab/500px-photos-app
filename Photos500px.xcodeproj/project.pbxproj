@@ -144,7 +144,6 @@
 			children = (
 				AB775CFA264FE9BB00DF4BB3 /* Extension */,
 				AB775CE6264FE6BF00DF4BB3 /* Config */,
-				AB775CF4264FE95A00DF4BB3 /* Util */,
 				AB775CDC264FDF4D00DF4BB3 /* Model */,
 				AB775CDB264FDF4300DF4BB3 /* Service */,
 				AB775CDD264FDF5500DF4BB3 /* ViewModel */,
@@ -234,13 +233,6 @@
 				AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */,
 			);
 			path = Config;
-			sourceTree = "<group>";
-		};
-		AB775CF4264FE95A00DF4BB3 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		AB775CFA264FE9BB00DF4BB3 /* Extension */ = {
