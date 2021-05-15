@@ -7,6 +7,8 @@ target 'Photos500px' do
 
   # Pods for Photos500px
   pod 'Kingfisher', '~> 6.0'
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
 
   target 'Photos500pxTests' do
     inherit! :search_paths
