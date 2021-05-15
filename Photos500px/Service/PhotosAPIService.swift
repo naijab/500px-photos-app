@@ -12,14 +12,14 @@ final class PhotosAPIService {
 
         let parameters: Parameters = [
             "feature": "popular",
-            "page": 1
+            "page": page,
+            "rpp": 20
         ]
 
         return RxAlamofire
             .requestJSON(.get, APIConstant.shared.apiPhotosBaseURL, parameters: parameters)
             .map { (response, value) in
                 guard response.statusCode == 200 else { return nil }
-                print("Fetch API!")
                 let dataRaw = value as! [String: Any]
                 return Mapper<APIPhotosResponse>().map(JSONObject: dataRaw)
             }

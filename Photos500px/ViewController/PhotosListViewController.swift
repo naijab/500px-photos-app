@@ -53,7 +53,10 @@ final class PhotosListViewController: UIViewController {
         viewModel.photos.subscribe {
             if let element = $0.element {
                 self.photos = element
-                self.photosListTableView.reloadData()
+
+                DispatchQueue.main.async {
+                    self.photosListTableView.reloadData()
+                }
             }
         }.disposed(by: disposeBag)
     }
