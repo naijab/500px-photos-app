@@ -7,6 +7,9 @@ target 'Photos500px' do
 
   # Pods for Photos500px
   pod 'Kingfisher', '~> 6.0'
+  pod 'ObjectMapper', '~> 3.5'
+  pod 'SkeletonView', '1.15.0'
+  pod 'RxAlamofire', '6.1'
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
 
