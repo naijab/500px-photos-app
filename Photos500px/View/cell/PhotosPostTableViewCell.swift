@@ -1,6 +1,5 @@
 import UIKit
 import Kingfisher
-import SkeletonView
 
 struct PhotosPostTableViewCellData {
     var photos: PhotosEntity? = nil
@@ -30,11 +29,6 @@ final class PhotosPostTableViewCell: UITableViewCell {
     }
 
     private func setupView() {
-        titleLabel.isSkeletonable = true
-        descriptionLabel.isSkeletonable = true
-        voteLabel.isSkeletonable = true
-
-        photosImageView.isSkeletonable = true
         photosImageView.layer.masksToBounds = true
         photosImageView.layer.cornerRadius = self.photosImageView.frame.width / 12
     }

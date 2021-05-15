@@ -1,5 +1,6 @@
 import UIKit
 import RxSwift
+import SVProgressHUD
 
 final class PhotosListViewController: UIViewController {
 
@@ -43,12 +44,28 @@ final class PhotosListViewController: UIViewController {
 
     private func setupBinding() {
         viewModel.isLoading.subscribe {
-            self.isLoading = $0
+            if let isLoading = $0.element {
+                self.isLoading = isLoading
+
+                if isLoading {
+                    DispatchQueue.main.async {
+                        SVProgressHUD.show()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        SVProgressHUD.dismiss()
+                    }
+                }
+            }
+
         }.disposed(by: disposeBag)
+
 
         viewModel.isLoadMoreCompleted.subscribe {
             if let isLoadMoreCompleted = $0.element {
-                self.photosListTableView.tableFooterView?.isHidden = isLoadMoreCompleted
+                DispatchQueue.main.async {
+                    self.photosListTableView.tableFooterView?.isHidden = isLoadMoreCompleted
+                }
             }
         }.disposed(by: disposeBag)
 
