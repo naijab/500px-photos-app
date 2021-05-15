@@ -21,6 +21,8 @@
 		AB775CE2264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */; };
 		AB775CE8264FE6D100DF4BB3 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */; };
 		AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */; };
+		AB775D0B264FFB2700DF4BB3 /* AdsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D09264FFB2700DF4BB3 /* AdsTableViewCell.swift */; };
+		AB775D0C264FFB2700DF4BB3 /* AdsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB775D0A264FFB2700DF4BB3 /* AdsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosPostTableViewCell.xib; sourceTree = "<group>"; };
 		AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
+		AB775D09264FFB2700DF4BB3 /* AdsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsTableViewCell.swift; sourceTree = "<group>"; };
+		AB775D0A264FFB2700DF4BB3 /* AdsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdsTableViewCell.xib; sourceTree = "<group>"; };
 		D1F313DCDC908A17A89DAD63 /* Pods-Photos500px-Photos500pxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos500px-Photos500pxUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos500px-Photos500pxUITests/Pods-Photos500px-Photos500pxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +213,8 @@
 			children = (
 				AB775CDF264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift */,
 				AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */,
+				AB775D09264FFB2700DF4BB3 /* AdsTableViewCell.swift */,
+				AB775D0A264FFB2700DF4BB3 /* AdsTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB775D0C264FFB2700DF4BB3 /* AdsTableViewCell.xib in Resources */,
 				AB5A9403264AD84700A5BA41 /* LaunchScreen.storyboard in Resources */,
 				AB5A9400264AD84700A5BA41 /* Assets.xcassets in Resources */,
 				AB775CE2264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib in Resources */,
@@ -492,6 +499,7 @@
 				AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */,
 				AB5A93F7264AD84600A5BA41 /* AppDelegate.swift in Sources */,
 				AB775CE1264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift in Sources */,
+				AB775D0B264FFB2700DF4BB3 /* AdsTableViewCell.swift in Sources */,
 				AB775CE8264FE6D100DF4BB3 /* APIConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
