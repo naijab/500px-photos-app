@@ -7,7 +7,7 @@ class APIPhotosResponse: Mappable {
     var photos: [PhotosEntity]?
 
     enum Key {
-        static let currentPage = "total_pages"
+        static let currentPage = "current_page"
         static let totalPages = "total_pages"
         static let photos = "photos"
     }

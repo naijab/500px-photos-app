@@ -47,15 +47,12 @@ final class PhotosListViewController: UIViewController {
         }.disposed(by: disposeBag)
 
         viewModel.hasNextPage.subscribe {
-            self.isLoading = $0
+            self.hasNextPage = $0
         }.disposed(by: disposeBag)
 
         viewModel.photos.subscribe {
             if let element = $0.element {
-
                 self.photos = element
-
-                print("self.photos - \(self.photos)")
             }
             self.photosListTableView.reloadData()
         }.disposed(by: disposeBag)
@@ -68,11 +65,11 @@ extension PhotosListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let row = indexPath.row
 
-        // TODO: Implement load more
-        //  if row == viewModel.photosList.count - 1,
-        //     viewModel.hasNextPage {
-        //     print("Load more !!")
-        //  }
+        if let photos = self.photos,
+           photos.count - 1 == row,
+           self.hasNextPage {
+            self.viewModel.loadMore()
+        }
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

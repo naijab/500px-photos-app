@@ -1,4 +1,5 @@
 import Foundation
+import Alamofire
 import RxSwift
 import RxAlamofire
 import ObjectMapper
@@ -7,15 +8,20 @@ final class PhotosAPIService {
 
     static let shared = PhotosAPIService()
 
-    func getPhotos() -> Observable<[PhotosEntity]?> {
+    func getPhotos(page: Int = 1) -> Observable<APIPhotosResponse?> {
+
+        let parameters: Parameters = [
+            "feature": "popular",
+            "page": 1
+        ]
+
         return RxAlamofire
-            .requestJSON(.get, APIConstant.shared.apiPhotosBaseURL)
+            .requestJSON(.get, APIConstant.shared.apiPhotosBaseURL, parameters: parameters)
             .map { (response, value) in
                 guard response.statusCode == 200 else { return nil }
-
+                print("Fetch API!")
                 let dataRaw = value as! [String: Any]
-                let data = Mapper<APIPhotosResponse>().map(JSONObject: dataRaw)
-                return data?.photos
+                return Mapper<APIPhotosResponse>().map(JSONObject: dataRaw)
             }
             .asObservable()
     }
