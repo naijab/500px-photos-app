@@ -1,6 +1,6 @@
 import UIKit
 
-class AdsTableViewCell: UITableViewCell {
+final class AdsTableViewCell: UITableViewCell {
 
     static let identifier = "AdsTableViewCell"
 

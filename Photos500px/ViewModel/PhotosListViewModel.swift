@@ -37,7 +37,6 @@ final class PhotosListViewModel {
     }
 
     func loadMore() {
-        print("Load More Page: \(currentPage)")
         self.isLoading.onNext(true)
         self.currentPage += 1
 

@@ -12,9 +12,9 @@ final class PhotosListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = PhotosListViewModel()
+
         setupPhotosListTableView()
         setupBinding()
-
         viewModel.fetch()
     }
 
@@ -53,8 +53,8 @@ final class PhotosListViewController: UIViewController {
         viewModel.photos.subscribe {
             if let element = $0.element {
                 self.photos = element
+                self.photosListTableView.reloadData()
             }
-            self.photosListTableView.reloadData()
         }.disposed(by: disposeBag)
     }
 
@@ -97,10 +97,7 @@ extension PhotosListViewController: UITableViewDataSource {
 
             cell.bindData(
                 with: PhotosPostTableViewCellData(
-                    title: item.name ?? "",
-                    description: item.description ?? "",
-                    photos: item.imageUrl?.first ?? "",
-                    voteCount: item.positiveVotesCount ?? 0
+                    photos: item
                 )
             )
         }
@@ -109,7 +106,6 @@ extension PhotosListViewController: UITableViewDataSource {
         print("Row Mod: \(row) ==> \(row % 4)")
 
         if row > 0, row % 5 == 0 {
-
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: AdsTableViewCell.identifier,
                 for: indexPath

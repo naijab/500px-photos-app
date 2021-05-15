@@ -1,11 +1,13 @@
 import UIKit
 import Kingfisher
+import SkeletonView
 
 struct PhotosPostTableViewCellData {
-    let title: String
-    let description: String
-    let photos: String
-    let voteCount: Int
+    var photos: PhotosEntity? = nil
+
+    init(photos: PhotosEntity? = nil) {
+        self.photos = photos
+    }
 }
 
 final class PhotosPostTableViewCell: UITableViewCell {
@@ -28,15 +30,22 @@ final class PhotosPostTableViewCell: UITableViewCell {
     }
 
     private func setupView() {
+        titleLabel.isSkeletonable = true
+        descriptionLabel.isSkeletonable = true
+        voteLabel.isSkeletonable = true
+
+        photosImageView.isSkeletonable = true
         photosImageView.layer.masksToBounds = true
         photosImageView.layer.cornerRadius = self.photosImageView.frame.width / 12
     }
 
     func bindData(with data: PhotosPostTableViewCellData) {
-        titleLabel?.text = data.title
-        descriptionLabel?.text = data.description
-        voteLabel?.text = data.voteCount.formatToCurrencyWithoutSimbol
-        photosImageView?.kf.setImage(with: URL(string: data.photos))
+        if let photos = data.photos {
+            titleLabel?.text = photos.name ?? ""
+            descriptionLabel?.text = photos.description ?? ""
+            voteLabel?.text = (photos.positiveVotesCount ?? 0).formatToCurrencyWithoutSimbol
+            photosImageView?.kf.setImage(with: URL(string: photos.imageUrl?.first ?? ""))
+        }
     }
     
 }
