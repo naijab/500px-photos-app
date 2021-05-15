@@ -20,7 +20,6 @@
 		AB775CE1264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CDF264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift */; };
 		AB775CE2264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */; };
 		AB775CE8264FE6D100DF4BB3 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */; };
-		AB775CF0264FE8C600DF4BB3 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CEF264FE8C600DF4BB3 /* AppColor.swift */; };
 		AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +65,6 @@
 		AB775CDF264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPostTableViewCell.swift; sourceTree = "<group>"; };
 		AB775CE0264FDFE400DF4BB3 /* PhotosPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosPostTableViewCell.xib; sourceTree = "<group>"; };
 		AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
-		AB775CEF264FE8C600DF4BB3 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
 		D1F313DCDC908A17A89DAD63 /* Pods-Photos500px-Photos500pxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos500px-Photos500pxUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos500px-Photos500pxUITests/Pods-Photos500px-Photos500pxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				AB775CE7264FE6D100DF4BB3 /* APIConstant.swift */,
-				AB775CEF264FE8C600DF4BB3 /* AppColor.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -492,7 +489,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB5A93FB264AD84600A5BA41 /* PhotosListViewController.swift in Sources */,
-				AB775CF0264FE8C600DF4BB3 /* AppColor.swift in Sources */,
 				AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */,
 				AB5A93F7264AD84600A5BA41 /* AppDelegate.swift in Sources */,
 				AB775CE1264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift in Sources */,
