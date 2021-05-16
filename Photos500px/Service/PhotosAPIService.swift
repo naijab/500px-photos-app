@@ -4,7 +4,11 @@ import RxSwift
 import RxAlamofire
 import ObjectMapper
 
-final class PhotosAPIService {
+protocol IPhotosAPIService {
+    func getPhotos(page: Int) -> Observable<APIPhotosResponse?>
+}
+
+final class PhotosAPIService: IPhotosAPIService {
 
     static let shared = PhotosAPIService()
 

@@ -26,6 +26,7 @@
 		AB775D112650048B00DF4BB3 /* PhotosListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D102650048B00DF4BB3 /* PhotosListViewModel.swift */; };
 		AB775D472650335E00DF4BB3 /* PhotosEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D462650335E00DF4BB3 /* PhotosEntity.swift */; };
 		AB775D4C265034CD00DF4BB3 /* PhotosAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D4B265034CD00DF4BB3 /* PhotosAPIService.swift */; };
+		AB775E142651044700DF4BB3 /* PhotosDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E132651044700DF4BB3 /* PhotosDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		AB775D102650048B00DF4BB3 /* PhotosListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModel.swift; sourceTree = "<group>"; };
 		AB775D462650335E00DF4BB3 /* PhotosEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosEntity.swift; sourceTree = "<group>"; };
 		AB775D4B265034CD00DF4BB3 /* PhotosAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPIService.swift; sourceTree = "<group>"; };
+		AB775E132651044700DF4BB3 /* PhotosDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDetailViewController.swift; sourceTree = "<group>"; };
 		D1F313DCDC908A17A89DAD63 /* Pods-Photos500px-Photos500pxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos500px-Photos500pxUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos500px-Photos500pxUITests/Pods-Photos500px-Photos500pxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				AB5A93FA264AD84600A5BA41 /* PhotosListViewController.swift */,
+				AB775E132651044700DF4BB3 /* PhotosDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			files = (
 				AB5A93FB264AD84600A5BA41 /* PhotosListViewController.swift in Sources */,
 				AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */,
+				AB775E142651044700DF4BB3 /* PhotosDetailViewController.swift in Sources */,
 				AB5A93F7264AD84600A5BA41 /* AppDelegate.swift in Sources */,
 				AB775CE1264FDFE400DF4BB3 /* PhotosPostTableViewCell.swift in Sources */,
 				AB775D0B264FFB2700DF4BB3 /* AdsTableViewCell.swift in Sources */,
