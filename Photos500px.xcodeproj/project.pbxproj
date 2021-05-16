@@ -27,6 +27,8 @@
 		AB775D472650335E00DF4BB3 /* PhotosEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D462650335E00DF4BB3 /* PhotosEntity.swift */; };
 		AB775D4C265034CD00DF4BB3 /* PhotosAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775D4B265034CD00DF4BB3 /* PhotosAPIService.swift */; };
 		AB775E142651044700DF4BB3 /* PhotosDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E132651044700DF4BB3 /* PhotosDetailViewController.swift */; };
+		AB775E222651196A00DF4BB3 /* TestRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E212651196A00DF4BB3 /* TestRecorder.swift */; };
+		AB775E2B26511B6A00DF4BB3 /* MockPhotosAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E2626511B6500DF4BB3 /* MockPhotosAPIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		AB775D462650335E00DF4BB3 /* PhotosEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosEntity.swift; sourceTree = "<group>"; };
 		AB775D4B265034CD00DF4BB3 /* PhotosAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPIService.swift; sourceTree = "<group>"; };
 		AB775E132651044700DF4BB3 /* PhotosDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDetailViewController.swift; sourceTree = "<group>"; };
+		AB775E212651196A00DF4BB3 /* TestRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecorder.swift; sourceTree = "<group>"; };
+		AB775E2626511B6500DF4BB3 /* MockPhotosAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotosAPIService.swift; sourceTree = "<group>"; };
 		D1F313DCDC908A17A89DAD63 /* Pods-Photos500px-Photos500pxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos500px-Photos500pxUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos500px-Photos500pxUITests/Pods-Photos500px-Photos500pxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +148,7 @@
 		AB5A93F5264AD84600A5BA41 /* Photos500px */ = {
 			isa = PBXGroup;
 			children = (
+				AB775E202651195E00DF4BB3 /* Helper */,
 				AB775CFA264FE9BB00DF4BB3 /* Extension */,
 				AB775CE6264FE6BF00DF4BB3 /* Config */,
 				AB775CDC264FDF4D00DF4BB3 /* Model */,
@@ -199,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				AB775D4B265034CD00DF4BB3 /* PhotosAPIService.swift */,
+				AB775E2626511B6500DF4BB3 /* MockPhotosAPIService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -244,6 +250,14 @@
 				AB775CFE264FE9DD00DF4BB3 /* NumberExtension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		AB775E202651195E00DF4BB3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AB775E212651196A00DF4BB3 /* TestRecorder.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		D87F0C5E1A4D5DBF99B32340 /* Pods */ = {
@@ -499,7 +513,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB775E222651196A00DF4BB3 /* TestRecorder.swift in Sources */,
 				AB5A93FB264AD84600A5BA41 /* PhotosListViewController.swift in Sources */,
+				AB775E2B26511B6A00DF4BB3 /* MockPhotosAPIService.swift in Sources */,
 				AB775CFF264FE9DD00DF4BB3 /* NumberExtension.swift in Sources */,
 				AB775E142651044700DF4BB3 /* PhotosDetailViewController.swift in Sources */,
 				AB5A93F7264AD84600A5BA41 /* AppDelegate.swift in Sources */,

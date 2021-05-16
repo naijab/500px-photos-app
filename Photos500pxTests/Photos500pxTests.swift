@@ -1,33 +1,31 @@
-//
-//  Photos500pxTests.swift
-//  Photos500pxTests
-//
-//  Created by Nattapon Pondongnok on 11/5/2564 BE.
-//
-
 import XCTest
 @testable import Photos500px
 
-class Photos500pxTests: XCTestCase {
+class PhotosListViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testFetch() throws {
+        let expectation = self.expectation(description: #function)
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let viewModel = PhotosListViewModel(photosService: MockPhotosAPIService())
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        let photosRecorder = TestRecorder<PhotosEntity>()
+        let loadingRecorder = TestRecorder<Bool>()
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        photosRecorder.on(arraySubject: viewModel.photos)
+        loadingRecorder.on(valueSubject: viewModel.isLoading)
+
+        viewModel.fetch()
+
+        XCTAssertEqual(loadingRecorder.items[0], true)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+            expectation.fulfill()
+        })
+
+        wait(for: [expectation], timeout: 2)
+
+        XCTAssertEqual(photosRecorder.items.count, 2)
+        XCTAssertEqual(loadingRecorder.items[1], false)
     }
 
 }

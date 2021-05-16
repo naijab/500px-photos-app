@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 
 final class PhotosListViewModel {
-    
+    private var photosService: IPhotosAPIService
     private let disposeBag = DisposeBag()
     private var lastestPhotos: [PhotosEntity] = []
     private var currentPage = 1
@@ -10,9 +10,10 @@ final class PhotosListViewModel {
     var isLoadMoreCompleted = PublishSubject<Bool>()
     var isLoading = PublishSubject<Bool>()
     var hasNextPage = PublishSubject<Bool>()
-    var photos = PublishSubject<[PhotosEntity]?>()
+    var photos = PublishSubject<[PhotosEntity]>()
 
-    init() {
+    init(photosService: IPhotosAPIService) {
+        self.photosService = photosService
         initState()
     }
 
@@ -26,15 +27,14 @@ final class PhotosListViewModel {
     func fetch() {
         self.isLoading.onNext(true)
 
-        PhotosAPIService.shared.getPhotos(page: 1)
+        self.photosService.getPhotos(page: 1)
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] data in
                 guard let self = self else { return }
 
                 if let element = data.element {
                     self.lastestPhotos = element?.photos ?? []
-                    self.photos.onNext(element?.photos)
-
+                    self.photos.onNext(element?.photos ?? [])
                     self.hasNextPage.onNext(self.currentPage < element?.totalPages ?? 1)
                 }
 
@@ -47,7 +47,7 @@ final class PhotosListViewModel {
         self.isLoadMoreCompleted.onNext(false)
         self.currentPage += 1
 
-        PhotosAPIService.shared.getPhotos(page: currentPage)
+        self.photosService.getPhotos(page: currentPage)
             .observe(on: MainScheduler.instance)
             .subscribe { [weak self] data in
                 guard let self = self else { return }

@@ -12,7 +12,7 @@ final class PhotosListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = PhotosListViewModel()
+        self.viewModel = PhotosListViewModel(photosService: PhotosAPIService())
 
         setupTitle()
         setupPhotosListTableView()
