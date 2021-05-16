@@ -6,12 +6,12 @@ target 'Photos500px' do
   use_frameworks!
 
   # Pods for Photos500px
-  pod 'SVProgressHUD', '2.2.5'
-  pod 'Kingfisher', '6.0'
-  pod 'ObjectMapper', '4.2'
-  pod 'RxAlamofire', '6.1'
-  pod 'RxSwift', '6.2.0'
-  pod 'RxCocoa', '6.2.0'
+  pod 'SVProgressHUD', '~> 2.2.5'
+  pod 'Kingfisher', '~> 6.0'
+  pod 'ObjectMapper', '~> 4.2'
+  pod 'RxAlamofire', '~> 6.1'
+  pod 'RxSwift', '~> 6.2.0'
+  pod 'RxCocoa', '~> 6.2.0'
 
   target 'Photos500pxTests' do
     inherit! :search_paths

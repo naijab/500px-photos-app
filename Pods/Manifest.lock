@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.4.3)
-  - JGProgressHUD (2.2)
   - Kingfisher (6.0.0)
   - ObjectMapper (4.2.0)
   - RxAlamofire (6.1.0):
@@ -17,18 +16,16 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - JGProgressHUD (= 2.2)
-  - Kingfisher (= 6.0)
-  - ObjectMapper (= 4.2)
-  - RxAlamofire (= 6.1)
-  - RxCocoa (= 6.2.0)
-  - RxSwift (= 6.2.0)
-  - SVProgressHUD (= 2.2.5)
+  - Kingfisher (~> 6.0)
+  - ObjectMapper (~> 4.2)
+  - RxAlamofire (~> 6.1)
+  - RxCocoa (~> 6.2.0)
+  - RxSwift (~> 6.2.0)
+  - SVProgressHUD (~> 2.2.5)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - JGProgressHUD
     - Kingfisher
     - ObjectMapper
     - RxAlamofire
@@ -39,7 +36,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
-  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Kingfisher: 13f6e68c928eb50439b5cb2ea75d6035018438ea
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   RxAlamofire: 27d77b94881fb308b679b70d0799f74c649df1e3
@@ -48,6 +44,6 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 6b83a137cb5bc3edb249b481e9459b4b951776c5
+PODFILE CHECKSUM: 78d1be146a8819311f03e464698dd53df8628a4e
 
 COCOAPODS: 1.10.1
