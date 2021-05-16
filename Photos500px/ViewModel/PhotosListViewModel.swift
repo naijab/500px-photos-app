@@ -2,6 +2,7 @@ import Foundation
 import RxSwift
 
 final class PhotosListViewModel {
+    
     private let disposeBag = DisposeBag()
     private var lastestPhotos: [PhotosEntity] = []
     private var currentPage = 1

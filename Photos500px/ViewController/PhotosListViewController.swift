@@ -14,9 +14,15 @@ final class PhotosListViewController: UIViewController {
         super.viewDidLoad()
         self.viewModel = PhotosListViewModel()
 
+        setupTitle()
         setupPhotosListTableView()
         setupBinding()
         viewModel.fetch()
+    }
+
+    private func setupTitle() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "500PX"
     }
 
     private func setupPhotosListTableView() {
@@ -122,6 +128,14 @@ extension PhotosListViewController: UITableViewDelegate {
 
 extension PhotosListViewController: UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? PhotosPostTableViewCell {
+            cell.didSelect(indexPath: indexPath)
+        } else if let cell = tableView.cellForRow(at: indexPath) as? AdsTableViewCell {
+            cell.didSelect(indexPath: indexPath)
+        }
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.photos?.count ?? 0
     }
@@ -142,6 +156,7 @@ extension PhotosListViewController: UITableViewDataSource {
                         photos: item
                     )
                 )
+                cell.delegate = self
             }
 
             return cell
@@ -150,7 +165,7 @@ extension PhotosListViewController: UITableViewDataSource {
                 withIdentifier: AdsTableViewCell.identifier,
                 for: indexPath
             ) as! AdsTableViewCell
-
+            cell.delegate = self
             return cell
         }
 
@@ -170,7 +185,31 @@ extension PhotosListViewController {
 
 }
 
+extension PhotosListViewController: PhotosPostTableViewCellDelegate {
 
-//let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! NextViewController
-//self.present(nextViewController, animated:true, completion:nil)
+    func didTap(_ cell: PhotosPostTableViewCell, photos: PhotosEntity) {
+        let storyBoard = UIStoryboard(name: "Main", bundle:nil)
+
+        let photosDetailViewController = storyBoard.instantiateViewController(
+            withIdentifier: PhotosDetailViewController.identifier
+        ) as! PhotosDetailViewController
+
+        if let url = photos.url {
+            photosDetailViewController.setPhotosUrl("https://500px.com\(url)")
+        }
+
+        self.navigationController?.pushViewController(photosDetailViewController, animated: true)
+    }
+
+}
+
+extension PhotosListViewController: AdsTableViewCellDelegate {
+
+    func didTap(_ cell: AdsTableViewCell) {
+        print("--- > Call to ads action")
+    }
+
+}
+
+
+

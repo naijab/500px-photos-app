@@ -30,6 +30,7 @@ class PhotosEntity: Mappable {
     var description: String?
     var imageUrl: [String]?
     var positiveVotesCount: Int?
+    var url: String?
 
     enum Key {
         static let id = "id"
@@ -37,6 +38,7 @@ class PhotosEntity: Mappable {
         static let description = "description"
         static let imageUrl = "image_url"
         static let positiveVotesCount = "positive_votes_count"
+        static let url = "url"
     }
 
     required init?(map: Map) {
@@ -49,5 +51,6 @@ class PhotosEntity: Mappable {
         description         <- map[Key.description]
         imageUrl            <- map[Key.imageUrl]
         positiveVotesCount  <- map[Key.positiveVotesCount]
+        url  <- map[Key.url]
     }
 }
