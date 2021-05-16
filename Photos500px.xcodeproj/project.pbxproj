@@ -29,6 +29,7 @@
 		AB775E142651044700DF4BB3 /* PhotosDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E132651044700DF4BB3 /* PhotosDetailViewController.swift */; };
 		AB775E222651196A00DF4BB3 /* TestRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E212651196A00DF4BB3 /* TestRecorder.swift */; };
 		AB775E2B26511B6A00DF4BB3 /* MockPhotosAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E2626511B6500DF4BB3 /* MockPhotosAPIService.swift */; };
+		AB775E39265125D000DF4BB3 /* PhotosListPageUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB775E38265125D000DF4BB3 /* PhotosListPageUITest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		AB775E132651044700DF4BB3 /* PhotosDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDetailViewController.swift; sourceTree = "<group>"; };
 		AB775E212651196A00DF4BB3 /* TestRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecorder.swift; sourceTree = "<group>"; };
 		AB775E2626511B6500DF4BB3 /* MockPhotosAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotosAPIService.swift; sourceTree = "<group>"; };
+		AB775E38265125D000DF4BB3 /* PhotosListPageUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListPageUITest.swift; sourceTree = "<group>"; };
 		D1F313DCDC908A17A89DAD63 /* Pods-Photos500px-Photos500pxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Photos500px-Photos500pxUITests.release.xcconfig"; path = "Target Support Files/Pods-Photos500px-Photos500pxUITests/Pods-Photos500px-Photos500pxUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				AB5A9418264AD84700A5BA41 /* Photos500pxUITests.swift */,
+				AB775E38265125D000DF4BB3 /* PhotosListPageUITest.swift */,
 				AB5A941A264AD84700A5BA41 /* Info.plist */,
 			);
 			path = Photos500pxUITests;
@@ -541,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB5A9419264AD84700A5BA41 /* Photos500pxUITests.swift in Sources */,
+				AB775E39265125D000DF4BB3 /* PhotosListPageUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

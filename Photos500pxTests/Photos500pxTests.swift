@@ -16,7 +16,7 @@ class PhotosListViewModelTests: XCTestCase {
 
         viewModel.fetch()
 
-        XCTAssertEqual(loadingRecorder.items[0], true)
+        XCTAssertTrue(loadingRecorder.items[0])
 
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
             expectation.fulfill()
@@ -25,7 +25,7 @@ class PhotosListViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
 
         XCTAssertEqual(photosRecorder.items.count, 2)
-        XCTAssertEqual(loadingRecorder.items[1], false)
+        XCTAssertFalse(loadingRecorder.items[1])
     }
 
 }
