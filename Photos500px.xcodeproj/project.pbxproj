@@ -156,8 +156,8 @@
 				AB775CDD264FDF5500DF4BB3 /* ViewModel */,
 				AB775CDA264FDF3C00DF4BB3 /* ViewController */,
 				AB775CD9264FDF2500DF4BB3 /* View */,
-				AB5A93F6264AD84600A5BA41 /* AppDelegate.swift */,
 				AB5A93FF264AD84700A5BA41 /* Assets.xcassets */,
+				AB5A93F6264AD84600A5BA41 /* AppDelegate.swift */,
 				AB5A9404264AD84700A5BA41 /* Info.plist */,
 			);
 			path = Photos500px;
