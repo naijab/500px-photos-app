@@ -129,25 +129,23 @@ extension PhotosListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
 
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: PhotosPostTableViewCell.identifier,
-            for: indexPath
-        ) as! PhotosPostTableViewCell
+        if row % 5 != 0, row >= 0 {
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: PhotosPostTableViewCell.identifier,
+                for: indexPath
+            ) as! PhotosPostTableViewCell
 
-        if let photos = self.photos, !photos.isEmpty {
-            let item = photos[row]
-
-            cell.bindData(
-                with: PhotosPostTableViewCellData(
-                    photos: item
+            if let photos = self.photos, !photos.isEmpty {
+                let item = photos[row]
+                cell.bindData(
+                    with: PhotosPostTableViewCellData(
+                        photos: item
+                    )
                 )
-            )
-        }
+            }
 
-        // FIX: Ads will show every 5th item between photos post
-        print("Row Mod: \(row) ==> \(row % 4)")
-
-        if row > 0, row % 5 == 0 {
+            return cell
+        } else if (row > 0) {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: AdsTableViewCell.identifier,
                 for: indexPath
@@ -156,7 +154,7 @@ extension PhotosListViewController: UITableViewDataSource {
             return cell
         }
 
-        return cell
+        return UITableViewCell()
     }
 
 }
