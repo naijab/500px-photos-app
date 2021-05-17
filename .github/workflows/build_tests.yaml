@@ -20,4 +20,4 @@ jobs:
     - name: Install xcpretty
       run: sudo gem install xcpretty
     - name: Run unit tests
-      run: xcodebuild test -scheme Photos500px -workspace Photos500px.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 11,OS=14.2' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme Photos500px -workspace Photos500px.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=14.5' | xcpretty && exit ${PIPESTATUS[0]}
